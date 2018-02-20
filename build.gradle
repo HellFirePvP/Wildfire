@@ -24,7 +24,33 @@ minecraft {
     mappings = "snapshot_20171003"
 }
 
+repositories {
+
+    maven {
+        // location of the maven that hosts JEI files
+        url = "http://dvs1.progwml6.com/files/maven"
+    }
+
+    maven {
+        // CraftTweaker
+        name 'jared maven'
+        url "http://maven.blamejared.com/"
+    }
+}
+
 dependencies {
+
+    def jei_mc_version = "1.12.2"
+    def jei_version = "4.8.5.151"
+
+    ////JEI stuff
+    deobfCompile "mezz.jei:jei_${jei_mc_version}:${jei_version}"
+
+    def mc_version = "1.12"
+    def ct_mc_version = "MC1120"
+    def ct_version = "4.1.2.404"
+
+    deobfCompile("CraftTweaker2:CraftTweaker2-${ct_mc_version}-Main:${mc_version}-${ct_version}")
 
 }
 
