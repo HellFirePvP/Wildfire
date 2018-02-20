@@ -12,6 +12,7 @@ import hellfirepvp.wildfire.Wildfire;
 import hellfirepvp.wildfire.client.effect.fx.EntityFXFacingDepthParticle;
 import hellfirepvp.wildfire.client.effect.fx.EntityFXFacingParticle;
 import hellfirepvp.wildfire.client.resource.AssetLibrary;
+import hellfirepvp.wildfire.client.util.TextureHelper;
 import hellfirepvp.wildfire.common.data.config.Config;
 import hellfirepvp.wildfire.common.util.Counter;
 import hellfirepvp.wildfire.common.util.Vector3;
@@ -66,8 +67,8 @@ public final class EffectHandler {
     public void onDebugText(RenderGameOverlayEvent.Text event) {
         if(Minecraft.getMinecraft().gameSettings.showDebugInfo) {
             event.getLeft().add("");
-            event.getLeft().add(TextFormatting.BLUE + "[Wildfire]" + TextFormatting.RESET + " EffectHandler:");
-            event.getLeft().add(TextFormatting.BLUE + "[Wildfire]" + TextFormatting.RESET + " > Complex effects: " + getDebugEffectCount());
+            event.getLeft().add(TextFormatting.GOLD + "[Wildfire]" + TextFormatting.RESET + " EffectHandler:");
+            event.getLeft().add(TextFormatting.GOLD + "[Wildfire]" + TextFormatting.RESET + " > Complex effects: " + getDebugEffectCount());
         }
     }
 
@@ -86,6 +87,8 @@ public final class EffectHandler {
                 effect.render(pTicks);
             }
         }
+
+        TextureHelper.refreshTextureBindState();
         acceptsNewParticles = true;
     }
 

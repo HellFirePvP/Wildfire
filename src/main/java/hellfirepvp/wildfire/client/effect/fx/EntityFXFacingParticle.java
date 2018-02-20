@@ -131,6 +131,7 @@ public class EntityFXFacingParticle extends EntityComplexFX {
         GlStateManager.disableAlpha();
         GlStateManager.enableBlend();
         Blending.DEFAULT.applyStateManager();
+        Blending.DEFAULT.apply();
         GlStateManager.disableCull();
         GlStateManager.depthMask(false);
 
